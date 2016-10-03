@@ -1,0 +1,11 @@
+ <article class="card card-block {% if reply.votereply < 0 %}Negative{% endif %}">
+        <section class="card-text"><h4>{{ reply.author }}</h4></section>
+        <section class="card-text"><h5>{{ reply.email }}</h5></section>
+        <section class="card-text">-{{ reply.comment }}-</section>
+        <p>{{ reply.voteReply }}</p>
+        <a href="{{ path('reply_upvote', {id:reply.id}) }}"> up </a>
+        <a href="{{ path('reply_downvote', {id:reply.id}) }}"> down </a>
+        <a href="{{ path('reply_delete', {id:reply.id}) }}">bye bryan</a>
+        
+
+    </article>

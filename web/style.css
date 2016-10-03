@@ -1,0 +1,71 @@
+body{
+    background: #F8F8F8 ;
+}
+
+h1{
+    color: #F78181;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h2{
+    color: #7C7C7C;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a{
+    color: #7C7C7C;
+
+}
+
+a:hover{
+    color: #373A3C;
+
+}
+
+.card-text h4{
+    color: #F78181;
+}
+.card-text h5{
+    color: #7C7C7C;
+    font-size: 15px;
+}
+
+.card-title{
+    text-decoration:none; 
+    color: #F78181;
+}
+
+#reply{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    
+}
+
+.Negative{
+    border: 2px solid red;
+    /* background-color: #DCDCDC; voila le gris mais c'est pas beau donc un beau border rouge */ 
+}
+
+#retour{
+    color: #7C7C7C;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+#bouton{
+    border: none;
+    background-color: #F78181;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 7px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

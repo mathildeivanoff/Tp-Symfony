@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SubjectRepository")
@@ -49,15 +50,32 @@ class Subject
     private $createdAt;
 
     /**
+     * @ORM\Column(type="integer")
+     *
+     * @var int
+     */
+    private $vote;
+
+    /**
      * @ORM\Column(type="datetime")
      *
      * @var \DateTime
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Reply", mappedBy="subject", cascade={"remove"})
+     * @ORM\OrderBy({"voteReply" = "DESC"})
+     *
+     * @var ArrayCollection<Reply>
+     */
+    private $replies;
+   
+
     public function __construct()
     {
         $this->resolved  = false;
+        $this->vote=0;
         $this->createdAt = new \DateTime;
         $this->updatedAt = new \DateTime;
     }
@@ -68,6 +86,21 @@ class Subject
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getReplies()
+    {
+        return $this->replies;
+    }
+
+    public function getVote()
+    {
+        return $this->vote;
+    }
+
+    public function setVote($vote)
+    {
+        $this->vote = $vote;
     }
 
     /**

@@ -3,15 +3,12 @@
 {% block title 'Sujets' %}
 
 {% block body %}
+    <a href="{{ path('subject_indexResolved')}}">
+        <h3 id='retour'>Sujets résolus ici</h3> 
+    </a>
+    <button id="bouton" type='submit'><a href="{{ path('subject_create')}}">creer sujet</a></button>
     {% for subject in subjects %}
-        <article class="card card-block">
-            <h3 class="card-title">{{ subject.title }}</h3>
-            <section class="card-text">{{ subject.description }}</section>
-            <span class="card-text">
-                <small class="text-muted">
-                    {{ subject.updatedAt|localizeddate }}
-                </small>
-            </span>
-        </article>
+        {{ include('subject/subject-single.html.twig', { 'subject': subject }) }}
     {% endfor %}
 {% endblock %}
+

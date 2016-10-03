@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Sujets' %}
+
+{% block body %}
+    <a href="{{ path('subject_index')}}"> 
+        <h3 id='retour'> Retour vers sujets non résolus</h3> 
+    </a>
+    {% for subject in subjects %}
+         {{ include('subject/subject-resolved.html.twig', { 'subject': subject }) }}
+
+    {% endfor %}
+{% endblock %}

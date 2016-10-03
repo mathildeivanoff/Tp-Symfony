@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Sujets-single' %}
+
+{% block body %}
+    {{ include('subject/subject-single.html.twig', { 'subject': subject }) }}
+
+    {% for reply in subject.replies %}
+   
+       {{ include('subject/reply-single.html.twig', { 'reply': reply }) }}
+
+    {% endfor %}
+    <form action='{{ path('subject_single', {id:subject.id})}}' method='POST' novalidate ='novalidate'>
+    {{ form_widget(form) }}
+    <button id="bouton" type='submit'>BALANCE LA SAUCE</button>
+    </form>
+{% endblock %}

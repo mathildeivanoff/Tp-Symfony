@@ -10,8 +10,18 @@ class SubjectRepository extends EntityRepository
     {
         return $this->createQueryBuilder('subject')
             ->where('subject.resolved = false')
-            ->orderBy('subject.updatedAt', 'DESC')
+            ->orderBy('subject.vote', 'DESC')
             ->getQuery()
             ->getResult();
+    }
+    public function findResolved()
+    {
+  
+		return $this->createQueryBuilder('subject')
+           ->where('subject.resolved = true')
+           ->setParameter("dateSixMonths", new \DateTime('-6 months'))
+           ->andWhere('subject.updatedAt > :dateSixMonths')
+           ->getQuery()
+           ->getResult();
     }
 }
